@@ -171,3 +171,6 @@ scratch*
 *secrets*.json
 magic-zoomcamp
 *.json
+
+# Ignore hidden .gc directory in the home directory
+~/.gc/
