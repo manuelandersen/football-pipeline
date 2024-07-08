@@ -40,4 +40,4 @@ RULES OF COMMIT:
 -   refactor: Refactoring a specific section of the codebase
 -   test: Everything related to testing
 -   docs: Everything related to documentation
--   2chore: Regular code maintenance.\[ You can also use emojis to represent commit types\]
+-   chore: Regular code maintenance.\[ You can also use emojis to represent commit types\]
