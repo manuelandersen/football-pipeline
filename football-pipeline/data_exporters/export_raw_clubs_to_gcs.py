@@ -21,8 +21,8 @@ def export_data_to_google_cloud_storage(df: DataFrame, **kwargs) -> None:
 
     bucket_name = 'data-lake-football-pipeline'
     #object_key = 'your_object_key'
-    file_name = f'first_kaggle_data.parquet'
-    object_key =  f'data/football-kaggle/{file_name}' 
+    file_name = f'clubs.parquet'
+    object_key =  f'data/clubs/{file_name}' 
 
     GoogleCloudStorage.with_config(ConfigFileLoader(config_path, config_profile)).export(
         df,
