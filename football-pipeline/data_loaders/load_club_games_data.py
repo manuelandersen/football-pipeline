@@ -21,7 +21,7 @@ def load_data_from_api(**kwargs) -> DataFrame:
     dataset_path = os.path.join(BASE_DIR, DATASET_FILE + ".zip")
 
     try:
-        result = subprocess.run(["kaggle", "datasets", "download", f"davidcariboo/{DATASET_NAME}", "-f", "club_games.csv", "-p", BASE_DIR])
+        result = subprocess.run(["kaggle", "datasets", "download", f"davidcariboo/{DATASET_NAME}", "-f", f"{DATASET_FILE}", "-p", BASE_DIR])
         if result.returncode == 0:
             print("Dataset downloaded successfully.")
 
