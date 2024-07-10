@@ -17,21 +17,20 @@ if 'test' not in globals():
 def load_data_from_api(**kwargs) -> DataFrame:
     BASE_DIR = "data/"
     DATASET_NAME = "player-scores"
-    DATASET_FILE = "club_games.csv"
+    DATASET_FILE = "games.csv"
     dataset_path = os.path.join(BASE_DIR, DATASET_FILE + ".zip")
 
     try:
-        result = subprocess.run(["kaggle", "datasets", "download", f"davidcariboo/{DATASET_NAME}", "-f", "club_games.csv", "-p", BASE_DIR])
+        result = subprocess.run(["kaggle", "datasets", "download", f"davidcariboo/{DATASET_NAME}", "-f", f"{DATASET_FILE}", "-p", BASE_DIR])
         if result.returncode == 0:
             print("Dataset downloaded successfully.")
-            #print(result.stdout)
-            # Extract the dataset
+
             with zipfile.ZipFile(dataset_path, "r") as zip_ref:
                 zip_ref.extractall(BASE_DIR)
                 print("Dataset extracted to:", BASE_DIR)
                 df = pd.read_csv(dataset_path)
-                #print(df.head(5))
                 return df
+                
         else:
             print("Error downloading dataset:")
             print(result.stderr)
