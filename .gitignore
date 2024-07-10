@@ -174,3 +174,9 @@ magic-zoomcamp
 
 # Ignore hidden .gc directory in the home directory
 ~/.gc/
+
+# Ignore notebooks folder
+notebooks/
+
+# Ignore data folder
+data/

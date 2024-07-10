@@ -17,7 +17,7 @@ if 'test' not in globals():
 def load_data_from_api(**kwargs) -> DataFrame:
     BASE_DIR = "data/"
     DATASET_NAME = "player-scores"
-    DATASET_FILE = "club_games.csv"
+    DATASET_FILE = "players.csv"
     dataset_path = os.path.join(BASE_DIR, DATASET_FILE + ".zip")
 
     try:
