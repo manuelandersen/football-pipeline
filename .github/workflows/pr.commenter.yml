@@ -1,0 +1,53 @@
+name: PR Comment
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Get list of changed and added files
+        id: changed-files
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+            });
+
+            const changedFiles = files.filter(file => file.status !== 'added').map(file => `- ${file.filename}`).join('\n');
+            const addedFiles = files.filter(file => file.status === 'added').map(file => `- ${file.filename}`).join('\n');
+
+            core.setOutput('changedFiles', changedFiles);
+            core.setOutput('addedFiles', addedFiles);
+
+      - name: Comment on the pull request
+        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const changedFiles = `${{ steps.changed-files.outputs.changedFiles }}`;
+            const addedFiles = `${{ steps.changed-files.outputs.addedFiles }}`;
+
+            let commentBody = '';
+            if (changedFiles) {
+              commentBody += `The following files have been changed:\n${changedFiles}\n\n`;
+            }
+            if (addedFiles) {
+              commentBody += `The following files have been added:\n${addedFiles}`;
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: commentBody
+            });
