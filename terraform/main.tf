@@ -22,4 +22,5 @@ resource "google_storage_bucket" "auto-expire" {
 resource "google_bigquery_dataset" "demo_dataset" {
   dataset_id = var.bq_dataset_name
   location   = var.location
+  delete_contents_on_destroy = true
 }
