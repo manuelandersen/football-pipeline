@@ -16,7 +16,7 @@ def export_data_to_big_query(df: DataFrame, **kwargs) -> None:
 
     Docs: https://docs.mage.ai/design/data-loading#bigquery
     """
-    table_id = 'football-pipeline-428816.raw_football_dataset.appearances'
+    table_id = 'football-pipeline-428816.raw_football_dataset.game_events'
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'default'
 
