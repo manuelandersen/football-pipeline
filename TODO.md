@@ -1,20 +1,20 @@
 1)  Initial Set up
 
     -   [x] Get Kaggle API credentials and how to download the data. (Try it with a notebook or with a simple python script)
-    -   [ ] Dockerfile
-    -   [ ] Get Mage running on the container.
+    -   [x] Dockerfile
+    -   [x] Get Mage running on the container.
 
 2)  Mage --\> GCS
 
-    -   [ ] Could try to run ingestion of data from kaggle to the GCS bucket toy i got for the course
+    -   [x] Could try to run ingestion of data from kaggle to the GCS bucket toy i got for the course
 
 3)  Terraform
 
-    -   [ ] Make terraform files to IaC GCS and Bigquery
+    -   [x] Make terraform files to IaC GCS and Bigquery
 
 4)  Mage --\> GCS
 
-    -   [ ] Once we have terraform running, start the ingestion from kaggle --\> GCS
+    -   [x] Once we have terraform running, start the ingestion from kaggle --\> GCS
 
 5)  Mage: GCS --\> Big Query
 
@@ -30,7 +30,7 @@
 
 8)  Write good README
 
-    -   [ ]
+    -   \[ \]
 
 RULES OF COMMIT:
 
