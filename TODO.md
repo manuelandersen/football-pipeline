@@ -18,7 +18,7 @@
 
 5)  Mage: GCS --\> Big Query
 
-    -   [ ] Start the ingestion from the data lake to the data warehouse, or is it that we need to use dbt to this?
+    -   [x] Start the ingestion from the data lake to the data warehouse, or is it that we need to use dbt to this?
 
 6)  dbt transformation
 
