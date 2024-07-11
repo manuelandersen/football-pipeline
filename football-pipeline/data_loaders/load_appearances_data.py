@@ -28,7 +28,22 @@ def load_data_from_api(**kwargs) -> DataFrame:
             with zipfile.ZipFile(dataset_path, "r") as zip_ref:
                 zip_ref.extractall(BASE_DIR)
                 print("Dataset extracted to:", BASE_DIR)
-                df = pd.read_csv(dataset_path)
+                appearances_dtypes = {
+                    "appearance_id": pd.StringDtype(),
+                    "game_id": pd.Int64Dtype(),
+                    "player_id": pd.Int64Dtype(),
+                    "player_club_id": pd.Int64Dtype(),
+                    "player_current_club_id": pd.Int64Dtype(),
+                #    "date": pd.to_datetime,
+                    "player_name": pd.StringDtype(),
+                    "competition_id": pd.StringDtype(),
+                    "yellow_cards": pd.Int64Dtype(),
+                    "red_cards": pd.Int64Dtype(),
+                    "goals": pd.Int64Dtype(),
+                    "assists": pd.Int64Dtype(),
+                    "minutes_played": pd.Int64Dtype()
+                }
+                df = pd.read_csv(dataset_path, dtype=appearances_dtypes)
                 return df
                 
         else:
