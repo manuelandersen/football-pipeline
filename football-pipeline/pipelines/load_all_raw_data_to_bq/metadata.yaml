@@ -1,0 +1,159 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - trigger_club_games_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: trigger_appearances_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: trigger_appearances_bq
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - trigger_clubs_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: trigger_club_games_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - trigger_appearances_bq
+  uuid: trigger_club_games_bq
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - trigger_competitions_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: trigger_clubs_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - trigger_club_games_bq
+  uuid: trigger_clubs_bq
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - trigger_game_events_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: trigger_competitions_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - trigger_clubs_bq
+  uuid: trigger_competitions_bq
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - trigger_games_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: trigger_game_events_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - trigger_competitions_bq
+  uuid: trigger_game_events_bq
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - trigger_player_valuations_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: trigger_games_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - trigger_game_events_bq
+  uuid: trigger_games_bq
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - trigger_players_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: trigger_player_valuations_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - trigger_games_bq
+  uuid: trigger_player_valuations_bq
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: trigger_players_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - trigger_player_valuations_bq
+  uuid: trigger_players_bq
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-07-11 17:19:32.855832+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: load_all_raw_data_to_bq
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: load_all_raw_data_to_bq
+variables_dir: /home/src/mage_data/football-pipeline
+widgets: []
