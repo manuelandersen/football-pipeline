@@ -22,16 +22,10 @@ renamed as (
         goals,
         assists,
         minutes_played,
-<<<<<<< HEAD
-        (yellow_cards+red_cards) as total_cards
-        (goals+1) as goals_plus_one
-=======
         (yellow_cards+red_cards) as total_cards,
-        (goals+assists) as statist
->>>>>>> 4314eb4f5ad69af927ae78584528a479ec23775e
-
+        (goals+1) as goals_plus_one
     from source
-
+    
 )
 
 select * from renamed
