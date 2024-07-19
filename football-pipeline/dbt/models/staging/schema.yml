@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: staging
+    database: football-pipeline-428816
+    schema: raw_football_dataset
+
+    tables: 
+      - name: appearances
