@@ -22,7 +22,8 @@ renamed as (
         goals,
         assists,
         minutes_played,
-        (yellow_cards+red_cards) as total_cards
+        (yellow_cards+red_cards) as total_cards,
+        (goals+assists) as statist
 
     from source
 
