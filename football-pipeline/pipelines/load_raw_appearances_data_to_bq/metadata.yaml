@@ -31,27 +31,6 @@ blocks:
   upstream_blocks:
   - load_appearances_from_gcs
   uuid: export_appearances_to_bq
-- all_upstream_blocks_executed: true
-  color: null
-  configuration:
-    dbt_project_name: dbt
-    file_path: dbt/models/staging/stg_appearances.sql
-    file_source:
-      path: dbt/models/staging/stg_appearances.sql
-      project_path: dbt
-    limit: 1000
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: sql
-  name: dbt/models/staging/stg_appearances
-  retry_config: null
-  status: updated
-  timeout: null
-  type: dbt
-  upstream_blocks: []
-  uuid: dbt/models/staging/stg_appearances
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
