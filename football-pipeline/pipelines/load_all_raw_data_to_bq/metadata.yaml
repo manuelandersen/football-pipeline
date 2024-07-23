@@ -1,145 +1,299 @@
 blocks:
 - all_upstream_blocks_executed: true
   color: null
-  configuration: {}
+  configuration:
+    file_source:
+      path: data_loaders/load_appearances_from_gcs.py
   downstream_blocks:
-  - trigger_club_games_bq
+  - export_appearances_to_bq
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: trigger_appearances_bq
+  name: load_appearances_from_gcs
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: trigger_appearances_bq
-- all_upstream_blocks_executed: false
+  uuid: load_appearances_from_gcs
+- all_upstream_blocks_executed: true
   color: null
-  configuration: {}
-  downstream_blocks:
-  - trigger_clubs_bq
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: trigger_club_games_bq
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks:
-  - trigger_appearances_bq
-  uuid: trigger_club_games_bq
-- all_upstream_blocks_executed: false
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - trigger_competitions_bq
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: trigger_clubs_bq
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks:
-  - trigger_club_games_bq
-  uuid: trigger_clubs_bq
-- all_upstream_blocks_executed: false
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - trigger_game_events_bq
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: trigger_competitions_bq
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks:
-  - trigger_clubs_bq
-  uuid: trigger_competitions_bq
-- all_upstream_blocks_executed: false
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - trigger_games_bq
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: trigger_game_events_bq
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks:
-  - trigger_competitions_bq
-  uuid: trigger_game_events_bq
-- all_upstream_blocks_executed: false
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - trigger_player_valuations_bq
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: trigger_games_bq
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks:
-  - trigger_game_events_bq
-  uuid: trigger_games_bq
-- all_upstream_blocks_executed: false
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - trigger_players_bq
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: trigger_player_valuations_bq
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks:
-  - trigger_games_bq
-  uuid: trigger_player_valuations_bq
-- all_upstream_blocks_executed: false
-  color: null
-  configuration: {}
+  configuration:
+    file_source:
+      path: data_exporters/export_appearances_to_bq.py
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: trigger_players_bq
+  name: export_appearances_to_bq
   retry_config: null
-  status: updated
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_appearances_from_gcs
+  uuid: export_appearances_to_bq
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_club_games_from_gcs.py
+  downstream_blocks:
+  - export_club_games_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_club_games_from_gcs
+  retry_config: null
+  status: not_executed
   timeout: null
   type: data_loader
+  upstream_blocks: []
+  uuid: load_club_games_from_gcs
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/export_club_games_to_bq.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_club_games_to_bq
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
   upstream_blocks:
-  - trigger_player_valuations_bq
-  uuid: trigger_players_bq
+  - load_club_games_from_gcs
+  uuid: export_club_games_to_bq
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_clubs_data_from_gcs.py
+  downstream_blocks:
+  - export_clubs_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_clubs_data_from_gcs
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_clubs_data_from_gcs
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/export_clubs_to_bq.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_clubs_to_bq
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_clubs_data_from_gcs
+  uuid: export_clubs_to_bq
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_competitions_from_gcs.py
+  downstream_blocks:
+  - export_competitions_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_competitions_from_gcs
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_competitions_from_gcs
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/export_competitions_to_bq.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_competitions_to_bq
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_competitions_from_gcs
+  uuid: export_competitions_to_bq
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_game_events_from_gcs.py
+  downstream_blocks:
+  - export_game_events_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_game_events_from_gcs
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_game_events_from_gcs
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/export_game_events_to_bq.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_game_events_to_bq
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_game_events_from_gcs
+  uuid: export_game_events_to_bq
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_games_from_gcs.py
+  downstream_blocks:
+  - export_games_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_games_from_gcs
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_games_from_gcs
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/export_games_to_bq.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_games_to_bq
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_games_from_gcs
+  uuid: export_games_to_bq
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_player_valuations_from_gcs.py
+  downstream_blocks:
+  - export_player_valuations_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_player_valuations_from_gcs
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_player_valuations_from_gcs
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/export_player_valuations_to_bq.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_player_valuations_to_bq
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_player_valuations_from_gcs
+  uuid: export_player_valuations_to_bq
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_players_from_gcs.py
+  downstream_blocks:
+  - export_players_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_players_from_gcs
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_players_from_gcs
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/export_players_to_bq.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_players_to_bq
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_players_from_gcs
+  uuid: export_players_to_bq
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
 created_at: '2024-07-11 17:19:32.855832+00:00'
 data_integration: null
-description: null
+description: Load all the files to the Data Warehouse
 executor_config: {}
 executor_count: 1
 executor_type: null
