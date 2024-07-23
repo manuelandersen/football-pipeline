@@ -14,7 +14,8 @@ renamed as (
         player_id as appearances_player_id,
         player_club_id,
         player_current_club_id,
-        date as date_appearances,
+        cast(date as date) as date_appearances,
+        extract(year from cast(date as date)) as year_appearances,
         player_name,
         competition_id,
         yellow_cards,
@@ -23,7 +24,7 @@ renamed as (
         assists,
         minutes_played,
         (yellow_cards+red_cards) as total_cards,
-        (goals+assists) as statist
+        (goals+assists) as player_statistics
 
     from source
 
