@@ -22,15 +22,17 @@
 
 6)  dbt transformation
 
-    -   [ ] Transform the data to make it very queriable(?).
+    -   [x] Transform the data to make it very queriable(?).
 
 7)  Looker Studio
 
-    -   [ ] Create the dashboards
+    -   [x] Create the dashboards
 
 8)  Write good README
 
-    -   \[ \]
+    -   [ ] Presentation of the pipeline
+    -   [ ] Instructions on how to replicate the project
+    -   [ ] Video demonstration of the pipeline in action
 
 RULES OF COMMIT:
 
