@@ -192,12 +192,12 @@ blocks:
   language: python
   name: load_game_lineups_data
   retry_config: null
-  status: not_executed
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: load_game_lineups_data
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     file_source:
@@ -209,7 +209,7 @@ blocks:
   language: python
   name: export_raw_partitioned_game_lineups_data
   retry_config: null
-  status: not_executed
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
