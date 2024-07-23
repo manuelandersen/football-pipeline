@@ -11,10 +11,10 @@ renamed as (
     select
         appearance_id,
         game_id,
-        player_id,
+        player_id as appearances_player_id,
         player_club_id,
         player_current_club_id,
-        date,
+        date as date_appearances,
         player_name,
         competition_id,
         yellow_cards,
@@ -30,3 +30,4 @@ renamed as (
 )
 
 select * from renamed
+
