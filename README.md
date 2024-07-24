@@ -14,7 +14,7 @@
     - [Transformations](#🔄-transformations)
 - [Dashboard](#📊-dashboard)
 - [Usage](#🔧-usage)
-
+- [Further Improvements](#🚀-further-improvements)
 
 ## 🏗️ Architecture
 
@@ -79,3 +79,8 @@ Here is the [report](https://lookerstudio.google.com/reporting/affeeeed-5583-4da
 You can refer to this [video]() where we provide an explicit tour of the project and how it works. 
 
 If you prefer instructions, check the [README of the docs section](docs/README.md). 
+
+## 🚀 Further Improvements
+
+- Add unit test, and integrate them into the CI/CD pipeline (besides the dbt ones).
+- Add a Makefile.
